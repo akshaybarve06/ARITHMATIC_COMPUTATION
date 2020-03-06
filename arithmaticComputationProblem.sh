@@ -60,7 +60,7 @@ function descendingSort()
 			fi
 		done
 	done
-	echo Array In Descending Order..${arrayElements[@]}
+	echo "Array In Descending Order.."${arrayElements[@]}
 }
 getInputs
 readValuesToArray
