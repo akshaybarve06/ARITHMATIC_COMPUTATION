@@ -26,4 +26,12 @@ function secondEquation()
 	input
 	secondEquationResult=$(( $numberOne * $numberTwo + $numberThree ))
 }
-secondEquation
+#secondEquation
+
+function thirdEquation()
+{
+	# Expression c+a/b
+	input
+	thirdEquationResult=`expr "scale=3; $numberThree + $numberOne / $numberTwo "|bc`
+}
+thirdEquation
