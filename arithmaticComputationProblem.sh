@@ -34,4 +34,12 @@ function thirdEquation()
 	input
 	thirdEquationResult=`expr "scale=3; $numberThree + $numberOne / $numberTwo "|bc`
 }
-thirdEquation
+#thirdEquation
+
+function fourthEquation()
+{
+	# Expression a%b+c
+	input
+	fourthEquationResult=$(($numberOne % $numberTwo + $numberThree ))
+}
+fourthEquation
