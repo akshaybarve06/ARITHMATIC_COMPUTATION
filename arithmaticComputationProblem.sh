@@ -20,19 +20,19 @@ findResult
 
 function findResult()
 {	# Expression a+b*c
-	firstEquationResult=$(( $numberOne + $numberTwo * $numberThree ))
+	firstEquationResult=`expr "scale=2; $numberOne + $numberTwo * $numberThree" | bc -l`
 	storeResult[1]=$firstEquationResult
 
 	# Expression a*b+c
-	secondEquationResult=$(( $numberOne * $numberTwo + $numberThree ))
+	secondEquationResult=`expr "scale=2; $numberOne * $numberTwo + $numberThree " | bc -l`
 	storeResult[2]=$secondEquationResult
 
 	# Expression c+a/b
-	thirdEquationResult=$(($numberThree + $numberOne / $numberTwo ))
+	thirdEquationResult=`expr "scale=2; $numberThree + $numberOne / $numberTwo " | bc -l`
 	storeResult[3]=$thirdEquationResult
 
 	# Expression a%b+c
-	fourthEquationResult=$(($numberOne % $numberTwo + $numberThree ))
+	fourthEquationResult=`expr "scale=2; $numberOne % $numberTwo + $numberThree " | bc -l`
 	storeResult[4]=$fourthEquationResult
 }
 
@@ -52,7 +52,7 @@ function descendingSort()
 	do
 		for ((j=i+1; j<${#arrayElements[@]}; j++ ))
 		do
-			if [[ ${arrayElements[i]} -lt ${arrayElements[j]} ]]
+			if [[ ${arrayElements[i]%.*} -lt ${arrayElements[j]%.*} ]]
 			then
 				temp=${arrayElements[i]}
 				arrayElements[i]=${arrayElements[j]}
@@ -60,7 +60,10 @@ function descendingSort()
 			fi
 		done
 	done
-	echo "Array In Descending Order.."${arrayElements[@]}
+	echo Array In Descending Order..${arrayElements[@]}
 }
+
+
+
 getInputs
 readValuesToArray
